@@ -1,4 +1,10 @@
-
+/**
+ * 
+ * Insertion sort algorithm.
+ * 
+ * @author Timothy Stelter
+ * @version 8117
+ */
 public class InsertionSort {
 	
 	public static final String name = "Insertion Sort";
@@ -23,4 +29,4 @@ public class InsertionSort {
 		}
 	}
 
-}
+}  //END CLASS

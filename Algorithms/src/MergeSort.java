@@ -1,8 +1,8 @@
 /**
- * MeregeSort follows a DIVIDE AND CONQUER Algorithm
+ * MeregeSort that follows a DIVIDE AND CONQUER Algorithm structure.
  * 
- * @author Tim
- *
+ * @author Timothy Stelter
+ * @version 8117
  */
 public class MergeSort {
 	
@@ -19,7 +19,7 @@ public class MergeSort {
 	 * @param array
 	 */
 	public void mergeSortAlgorithm(int[] array) {
-		
+		System.out.println("Work-in-progress...");
 	}
 	
 	/**
