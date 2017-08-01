@@ -1,10 +1,5 @@
 
-/**
- * Bubblesort Algorithm
- * 
- * @author Timothy Stelter
- * @version 8117
- */
+
 public class BubbleSort {
 
 	public static final String name = "Bubble Sort";
@@ -14,11 +9,14 @@ public class BubbleSort {
 		
 		for(int i = 0; i < array.length; i++) {
 			for(int j = 0; j < array.length; j++) {
+				
 				if(array[i] > array[j]) {
 					// swap
 				}
+				
 			}
 		}
 		
 	}
-}  //END CLASS
+
+}
