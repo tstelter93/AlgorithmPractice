@@ -20,7 +20,7 @@ public class Main {
 		/*Starts the GUI to collect needed algorithmic information*/
 		gui.startGui();
 		/*Outputs the runtime calculations of the specified algorithm + input information*/
-		gui.algorithmGo();
+		//gui.algorithmGo();
 
 	}
 
