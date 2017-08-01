@@ -20,13 +20,13 @@ public final class Constants {
 	public static final int ZERO                 = 0;
 	public static final int ARRAY_SIZE_MIN_LIMIT = 2;
 	public static final int ARRAY_SIZE_MAX_LIMIT = 10000000;
-	public static final Map<Integer, String> ALGO_MAP;
+	public static final Map<String, String> ALGO_MAP;
     static{
-        Hashtable<Integer,String> tmp = 
-            new Hashtable<Integer,String>();
-        tmp.put(1,"Bubble Sort");
-        tmp.put(2,"Insertion Sort");
-        tmp.put(3,"Merge Sort");
+        Hashtable<String, String> tmp = 
+            new Hashtable<String, String>();
+        tmp.put("1","Bubble Sort");
+        tmp.put("2","Insertion Sort");
+        tmp.put("3","Merge Sort");
         ALGO_MAP = Collections.unmodifiableMap(tmp);
     }
 	
