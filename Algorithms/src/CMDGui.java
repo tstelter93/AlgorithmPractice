@@ -16,8 +16,8 @@ import java.util.Set;
 public class CMDGui {
 	
 	/*Class fields*/
-	private ArrayList<String> algorithms = new ArrayList<String>();
 	private int arraySize;
+	private static int algoSelection;
 	
 	/**
 	 * The Constructor
@@ -25,6 +25,7 @@ public class CMDGui {
 	public CMDGui() {
 		super();
 		arraySize = 10;
+		algoSelection = 0;
 	}
 	
 	/**
@@ -36,7 +37,7 @@ public class CMDGui {
 				+ "\n*Algorithm Timer"
 				+ "\n*"
 				+ "\n*"
-				+ "\n*****************************************************");
+				+ "\n*****************************************************\n");
 		
 		/*Print out the algorithm list*/
 		System.out.println("Pick an algorithm from the list to use:");
@@ -53,13 +54,15 @@ public class CMDGui {
 		boolean algoFlag = true;
 		while(algoFlag) {
 			Integer algoValue = scan.nextInt();
-			if(algoValue.intValue() <= algorithms.size() 
-					&& algoValue.intValue() >= Constants.ZERO) {
+			if(algoValue.intValue() <= Constants.ALGO_MAP.size() 
+					&& algoValue.intValue() > Constants.ZERO) {
 				//TODO: Store the algorithm to be used somehow.  Use name?  ID factor?
+				System.out.println("Selection: " + Constants.ALGO_MAP.get(algoValue.toString()) 
+				    + "\n");
 				algoFlag = false;
 			} else {
 				System.out.println("Invalid Value.  Please submit a valid value between 1 and " 
-			        + algorithms.size() + ":  ");
+			        + Constants.ALGO_MAP.size() + ":  ");
 			}
 		}
 		
@@ -73,6 +76,8 @@ public class CMDGui {
 			if(arrayValue.intValue() <= Constants.ARRAY_SIZE_MAX_LIMIT 
 					&& arrayValue.intValue() >= Constants.ARRAY_SIZE_MIN_LIMIT) {
 				setArraySize(arrayValue);
+				System.out.println("Array Size:  " + arrayValue 
+			        + "\n");
 				valueFlag = false;
 			} else {
 				System.out.println("Invalid Value.  Please submit a valid value between 2 and 10,000,000:  ");
