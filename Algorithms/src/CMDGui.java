@@ -1,5 +1,10 @@
-import java.awt.List;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Random;
+import java.util.Scanner;
+import java.util.Set;
+/*Import was throwing an error.  But constant usage works without import anyways?*/
+// import static Constants.*;
 
 /**
  * 
@@ -10,26 +15,72 @@ import java.util.Random;
  */
 public class CMDGui {
 	
-	private List algorithms = new List();
-	
-	public CMDGui() {
-		super();
-	}
+	/*Class fields*/
+	private ArrayList<String> algorithms = new ArrayList<String>();
+	private int arraySize;
 	
 	/**
-	 * Creates the list of available algorithms and stores them in a list
+	 * The Constructor
 	 */
-	public static void createList(){
-		// How to grab what algorithms have been made?  Switch statement?  Hardcoded?
-		// Script to find the names?
+	public CMDGui() {
+		super();
+		arraySize = 10;
 	}
 	
 	/**
 	 * Starts the GUI to collect needed algorithmic information
 	 */
 	public void startGui() {
-		// Begin using scanners here
-		// use the createlist function here to find all the algorithms to use.
+		Scanner scan = new Scanner(System.in);
+		System.out.println("*****************************************************" 
+				+ "\n*Algorithm Timer"
+				+ "\n*"
+				+ "\n*"
+				+ "\n*****************************************************");
+		
+		/*Print out the algorithm list*/
+		System.out.println("Pick an algorithm from the list to use:");
+		Set<String> keys = Constants.ALGO_MAP.keySet();
+		Iterator<String> itr = keys.iterator();
+		
+		String key = "";
+		while(itr.hasNext()) {
+			key = itr.next();
+			System.out.println(key + ")" + Constants.ALGO_MAP.get(key));
+		}
+		
+		/*Handler for algorithm selection*/
+		boolean algoFlag = true;
+		while(algoFlag) {
+			Integer algoValue = scan.nextInt();
+			if(algoValue.intValue() <= algorithms.size() 
+					&& algoValue.intValue() >= Constants.ZERO) {
+				//TODO: Store the algorithm to be used somehow.  Use name?  ID factor?
+				algoFlag = false;
+			} else {
+				System.out.println("Invalid Value.  Please submit a valid value between 1 and " 
+			        + algorithms.size() + ":  ");
+			}
+		}
+		
+		/*User input for array size to sort*/
+		System.out.println("Please enter the size of the array.  "
+		+ "\nNOTE: The array value must be between 2 and 10,000,000:  ");
+		
+		boolean valueFlag = true;
+		while(valueFlag) {
+			Integer arrayValue = scan.nextInt();
+			if(arrayValue.intValue() <= Constants.ARRAY_SIZE_MAX_LIMIT 
+					&& arrayValue.intValue() >= Constants.ARRAY_SIZE_MIN_LIMIT) {
+				setArraySize(arrayValue);
+				valueFlag = false;
+			} else {
+				System.out.println("Invalid Value.  Please submit a valid value between 2 and 10,000,000:  ");
+			}
+		}
+		
+		/*Close off the I/O scanner*/
+		scan.close();
 	}
 	
 	/**
@@ -38,7 +89,7 @@ public class CMDGui {
 	public void algorithmGo() {
 		Random rand = new Random();
 		int newNum = 0;
-		int[] array = new int[10000000];
+		int[] array = new int[arraySize];
 		
 		// Used to create Array of random values
 		for(int i = 0; i < array.length; i++) {
@@ -79,6 +130,21 @@ public class CMDGui {
 		System.out.println("---------------------------------------------------");
 	}
 	// getters and ?setters? to use information in printout
-	
+
+	/**
+	 * Returns the value of arraySize
+	 * @return Returns the value of arraySize
+	 */
+	public int getArraySize() {
+		return arraySize;
+	}
+
+	/**
+	 * Sets the value of arraySize
+	 * @param arraySize Size of the static array to sort
+	 */
+	public void setArraySize(int arraySize) {
+		this.arraySize = arraySize;
+	}
 	
 } //END CLASS
