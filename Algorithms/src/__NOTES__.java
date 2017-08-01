@@ -15,10 +15,11 @@ public class __NOTES__ {
 	 *           
 	 * Combine - the SOLUTIONS to the SUBPROBLEMS int the solution for the original problem.
 	 * 
+	 * ---------------------
+	 * 8/1/17
 	 * 
-	 * 
-	 * 
-	 * 
+	 * Interesting differences for HashMaps vs HashTables (used in Constants file):
+	 *  https://stackoverflow.com/questions/40471/differences-between-hashmap-and-hashtable
 	 * 
 	 * 
 	 * 
