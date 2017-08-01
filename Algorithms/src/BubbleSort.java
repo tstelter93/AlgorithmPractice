@@ -1,5 +1,10 @@
-
-
+/**
+ * 
+ * Bubblesort algorithm.
+ * 
+ * @author Timothy Stelter
+ * @version 8117
+ */
 public class BubbleSort {
 
 	public static final String name = "Bubble Sort";

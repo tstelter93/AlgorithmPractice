@@ -1,4 +1,10 @@
-
+/**
+ * 
+ * Program entry point.
+ * 
+ * @author Timothy Stelter
+ * @version 8117
+ */
 public class Main {
 
 	/**
