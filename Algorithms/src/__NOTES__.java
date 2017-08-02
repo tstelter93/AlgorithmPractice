@@ -22,8 +22,16 @@ public class __NOTES__ {
 	 *  https://stackoverflow.com/questions/40471/differences-between-hashmap-and-hashtable
 	 * 
 	 * 
+	 * ---------------------
+	 * 8/2/17
 	 * 
+	 * Checked vs Unchecked exceptions
 	 * 
+	 * Checked -> Have a try/catch block
+	 * Unchecked -> doesn't require it.  i.e. throws new WhatException();  // no try/catch just throw it
+	 * 
+	 * More detail here:
+	 * https://stackoverflow.com/questions/8423700/how-to-create-a-custom-exception-type-in-java
 	 * 
 	 * 
 	 * 
