@@ -47,7 +47,7 @@ public class CMDGui {
 		String key = "";
 		while(itr.hasNext()) {
 			key = itr.next();
-			System.out.println(key + ")" + Constants.ALGO_MAP.get(key));
+			System.out.println(key + ")" + Constants.ALGO_MAP.get(key).getClass().getName());
 		}
 		
 		/*Handler for algorithm selection*/
@@ -57,7 +57,7 @@ public class CMDGui {
 			if(algoValue.intValue() <= Constants.ALGO_MAP.size() 
 					&& algoValue.intValue() > Constants.ZERO) {
 				//TODO: Store the algorithm to be used somehow.  Use name?  ID factor?
-				System.out.println("Selection: " + Constants.ALGO_MAP.get(algoValue.toString()) 
+				System.out.println("Selection: " + Constants.ALGO_MAP.get(algoValue.toString()).getClass().getName() 
 				    + "\n");
 				algoFlag = false;
 			} else {
@@ -92,34 +92,29 @@ public class CMDGui {
 	 * Outputs the runtime calculations of the specified algorithm + input information
 	 */
 	public void algorithmGo() {
+		/*Setting up the random number generator and array to be sorted*/
 		Random rand = new Random();
 		int newNum = 0;
 		int[] array = new int[arraySize];
 		
-		// Used to create Array of random values
+		/*Loop used to create Array of random values*/
 		for(int i = 0; i < array.length; i++) {
 			newNum = rand.nextInt(12000);
 			array[i] = newNum;
 		}
 		
-		//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		// Take user choice and instantiate that algorithm class.
+
 		
-		// Initialize my Algorithm class
+		// Get the name of the algorithm
+		String name = "";
 		
-		
-		//InsertionSort insert = new InsertionSort();
-		//BubbleSort    bubble = new BubbleSort();
-		MergeSort     merge  = new MergeSort();
-		
-		// Current Algorithm
-		
-		String name = merge.name;
-		
-		// Time said algorithm
-		
+		/* Setup timing scheme and run the algorithm.  
+		 * Make the variables final to avoid potential changes
+		 */
 		final long startTime = System.currentTimeMillis();
 	
-		merge.mergeSortAlgorithm(array);
+		// merge.mergeSortAlgorithm(array);
 		
 		final long endTime = System.currentTimeMillis();
 		
