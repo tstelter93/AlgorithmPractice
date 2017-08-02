@@ -56,7 +56,7 @@ public class CMDGui {
 			Integer algoValue = scan.nextInt();
 			if(algoValue.intValue() <= Constants.ALGO_MAP.size() 
 					&& algoValue.intValue() > Constants.ZERO) {
-				//TODO: Store the algorithm to be used somehow.  Use name?  ID factor?
+				algoSelection = algoValue;
 				System.out.println("Selection: " + Constants.ALGO_MAP.get(algoValue.toString()).getClass().getName() 
 				    + "\n");
 				algoFlag = false;
@@ -90,8 +90,9 @@ public class CMDGui {
 	
 	/**
 	 * Outputs the runtime calculations of the specified algorithm + input information
+	 * @throws AlgorithmUnsupportedException 
 	 */
-	public void algorithmGo() {
+	public void algorithmGo() throws AlgorithmUnsupportedException {
 		/*Setting up the random number generator and array to be sorted*/
 		Random rand = new Random();
 		int newNum = 0;
@@ -104,30 +105,39 @@ public class CMDGui {
 		}
 		
 		// Take user choice and instantiate that algorithm class.
-
+		if((algoSelection <= Constants.ZERO) || (algoSelection > Constants.ALGO_MAP.size())) {
+			throw new AlgorithmUnsupportedException("Error in algorithm selection.");
+		} else {
+			//TODO: issue STILL with getting the correct type from the HashTable.
+			//TODO: Figure out how to cast maybe?
+			Set<String> keys = Constants.ALGO_MAP.keySet();
+			String name = Constants.ALGO_MAP.get(algoSelection).getClass().getName();
+			Object tmp = Constants.ALGO_MAP.get(algoSelection);
+			
+//			if(tmp instanceof Algorithm) {
+//				
+//			}
+			/* Setup timing scheme and run the algorithm.  
+			 * Make the variables final to avoid potential changes
+			 */
+			final long startTime = System.currentTimeMillis();
 		
-		// Get the name of the algorithm
-		String name = "";
-		
-		/* Setup timing scheme and run the algorithm.  
-		 * Make the variables final to avoid potential changes
-		 */
-		final long startTime = System.currentTimeMillis();
+			// merge.mergeSortAlgorithm(array);
+			
+			final long endTime = System.currentTimeMillis();
+			
+			//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+			
+			// Printouts
+			System.out.println("Algorithm is: " + name);
+			System.out.println("Size of Array is: " + array.length);
+			System.out.println("---------------------------------------------------");
+			System.out.println("Start time (milli): " + (startTime));
+			System.out.println("End   time (milli): " + (endTime));
+			System.out.println("Total execution time (milli): " + (endTime - startTime) );
+			System.out.println("---------------------------------------------------");
+		}
 	
-		// merge.mergeSortAlgorithm(array);
-		
-		final long endTime = System.currentTimeMillis();
-		
-		//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-		
-		// Printouts
-		System.out.println("Algorithm is: " + name);
-		System.out.println("Size of Array is: " + array.length);
-		System.out.println("---------------------------------------------------");
-		System.out.println("Start time (milli): " + (startTime));
-		System.out.println("End   time (milli): " + (endTime));
-		System.out.println("Total execution time (milli): " + (endTime - startTime) );
-		System.out.println("---------------------------------------------------");
 	}
 	// getters and ?setters? to use information in printout
 

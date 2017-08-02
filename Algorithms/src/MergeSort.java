@@ -18,7 +18,7 @@ public class MergeSort extends Algorithm{
 	 * 
 	 * @param array
 	 */
-	public void mergeSortAlgorithm(int[] array) {
+	public void useAlgorithm(int[] array) {
 		System.out.println("Work-in-progress...");
 	}
 	

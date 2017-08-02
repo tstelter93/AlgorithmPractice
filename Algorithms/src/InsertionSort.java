@@ -13,7 +13,7 @@ public class InsertionSort extends Algorithm {
 	//
 	//  The algorithm sorts the input numbers in place: it rearranges the numbers within the array 'array', 
 	//      with at most a constant number of them stored outside the array at any time.
-	public void insertionSortAlgorithm(int[] array) {
+	public void useAlgorithm(int[] array) {
 		int key = 0;
 		int i = 0;
 		
