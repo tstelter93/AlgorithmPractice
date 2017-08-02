@@ -4,15 +4,15 @@
  * @author Timothy Stelter
  * @version 8117
  */
-public class MergeSort {
+public class MergeSort extends Algorithm{
 	
-	public static final String name = "Merge Sort";
+	private static final String NAME = "Merge Sort";
 	
 	/**
 	 * 
 	 * Divide:  Divide the n-element sequence to be stored into two subsequences of n/2 elements each.
 	 * 
-	 * Conquer: Sort hte two subsequences recursively using merge sort.
+	 * Conquer: Sort the two subsequences recursively using merge sort.
 	 * 
 	 * Combine: Merge the two sorted subsequences to produce the sorted answer.
 	 * 
@@ -68,5 +68,13 @@ public class MergeSort {
 			}
 			
 		}
+	}
+	
+	/**
+	 * Getter for the constant NAME.  Used to help Constants class to easily integrate algoMap.
+	 * @return NAME A private constant
+	 */
+	public String getName() {
+		return NAME;
 	}
 }

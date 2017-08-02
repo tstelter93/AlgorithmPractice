@@ -5,9 +5,9 @@
  * @author Timothy Stelter
  * @version 8117
  */
-public class InsertionSort {
+public class InsertionSort extends Algorithm {
 	
-	public static final String name = "Insertion Sort";
+	private static final String NAME = "Insertion Sort";
 	
 	//  insertion sort, which is an efficient algorithm for sorting a SMALL number of elements.
 	//
@@ -29,4 +29,12 @@ public class InsertionSort {
 		}
 	}
 
+	/**
+	 * Getter for the constant NAME.  Used to help Constants class to easily integrate algoMap.
+	 * @return NAME A private constant
+	 */
+	public String getName() {
+		return NAME;
+	}
+	
 }  //END CLASS
